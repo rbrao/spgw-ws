@@ -1,0 +1,53 @@
+
+<div class="row">
+ <div class="col-md-1">
+ </div>
+ <div class="col-xs-4">
+  <table class="table">
+      <th>Dept#</th>
+      <th>Name</th>
+      <th>Manufacturer</th>
+      <th>Model</th>
+      <th>IP address</th>
+      <th>Serial #</th>
+      <th>Custom Tag</th>
+      <th>Location</th>
+      <th>Emp #</th>
+      <th>Servicestate</th>
+      <th>Description</th>
+      <th colspan="4"></th>
+    <% @boxdetails.each do |boxdetail| %>
+      <tr>
+        <td><%= boxdetail.department.name %></td>
+        <td><%= boxdetail.name %></td>
+        <td><%= boxdetail.manufacturer %></td>
+        <td><%= boxdetail.model %></td>
+        <td><%= boxdetail.ipaddress %></td>
+        <td><%= boxdetail.serialnum %></td>
+        <td><%= boxdetail.customtag %></td>
+        <td><%= boxdetail.location.city %></td>
+        <td><%= boxdetail.empid %></td>
+        <td><%= boxdetail.servicestate.name %></td>
+        <td><%= boxdetail.description %></td>
+	<td></td>
+        <td>
+		<%= link_to boxdetail, class: 'link-to-text-color' do %>
+		<span class="glyphicon glyphicon-list"></span>
+		<% end %>
+	</td>
+        <td>
+		<%= link_to edit_boxdetail_path(boxdetail), class: 'link-to-text-color' do %>
+		<span class="glyphicon glyphicon-pencil"></span>
+		<% end %>
+	</td>
+        <td>
+		<%= link_to boxdetail, class: 'link-to-text-color', method: :delete, data: { confirm: 'Are you sure?' } do %>
+		<span class="glyphicon glyphicon-trash"></span>
+		<% end %>
+	</td>
+      </tr>
+    <% end %>
+   </table>
+  </div>
+ </div>
+

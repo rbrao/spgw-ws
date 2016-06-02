@@ -1,0 +1,1 @@
+json.extract! @boxdetail, :id, :department_id, :name, :manufacturer, :model, :ipaddress, :serialnum, :partnum, :customtag, :servicetag, :location_id, :operatingsystem_id, :osversion, :bonding, :warrantystart, :warrantyend, :empid, :servicestate_id, :description, :notes, :created_at, :updated_at

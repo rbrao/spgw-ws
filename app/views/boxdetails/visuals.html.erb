@@ -1,0 +1,35 @@
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Visualizations</div>
+	<div class="row">
+	    <div class="col-md-4">
+		<h5>Manufacturers</h5>
+		<%= pie_chart Boxdetail.group(:manufacturer).count %>
+	    </div>
+	    <div class="col-md-4">
+		<h5>Models</h5>
+		<%= pie_chart Boxdetail.group(:model).count %>
+	    </div>
+	    <div class="col-md-4">
+		<h5>Department-wise</h5>
+		<%= pie_chart Boxdetail.group(:department_id).count %>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="col-md-9">
+		<h5>Warranty Timelines</h5>
+		  <%= timeline [
+			  ["hvac", "2010-03-18", "2013-03-18"],
+			  ["samrat", "2005-03-18", "2015-03-18"],
+			  ["mbpro", "2015-03-18", "2018-03-18"],
+			  ["mailtest", "2014-11-20", "2020-11-20"],
+		   ] %>
+	    </div>
+	</div>
+</div>
+
+<!--
+-->

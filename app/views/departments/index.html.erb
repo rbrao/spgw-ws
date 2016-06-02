@@ -1,0 +1,42 @@
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Departments</div>
+
+<div class="row">
+ <div class="col-md-1">
+ </div>
+ <div class="col-xs-4">
+  <table class="table">
+   	<th>Name</th>
+	<th>Created</th>
+	<th colspan="2"></th>
+    <% @departments.each do |dept| %>
+	<tr>
+	  <td><%= dept.name %></td>
+	  <td><%= time_ago_in_words dept.created_at %> ago</td>
+	  <td>
+		<%= link_to edit_department_path(dept.id), class: "link-to-text-color" do %>
+		<span class="glyphicon glyphicon-pencil"></span>
+                <% end %>
+	  </td>
+	  <td>
+		<%= link_to dept, method: :delete, data: { confirm: "Are you sure?" }, class: "link-to-text-color" do %>
+		<span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+	  </td>
+	</tr>
+    <% end %>
+  </table>
+ </div>
+</div>
+
+</div>
+
+<div class="row">
+ <div class="col-md-1">
+ </div>
+ <div class="col-md-2">
+	<a href="/departments/new"><button type="button" class="btn">Add a new department</button></a>
+ </div>
+</div>

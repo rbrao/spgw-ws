@@ -1,0 +1,98 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+ <div class="col-md-1">
+ </div>
+ <div class="col-xs-4">
+  <table class="table">
+    <tr>
+      <th>Dept#</th>
+      <td><%= @boxdetail.department.name %></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><%= @boxdetail.name %></td>
+    </tr>
+    <tr>
+      <th>Manufacturer</th>
+      <td><%= @boxdetail.manufacturer %></td>
+    </tr>
+    <tr>
+      <th>Model</th>
+      <td><%= @boxdetail.model %></td>
+    </tr>
+    <tr>
+      <th>IP address</th>
+      <td><%= @boxdetail.ipaddress %></td>
+    </tr>
+    <tr>
+      <th>Serial #</th>
+      <td><%= @boxdetail.serialnum %></td>
+    </tr>
+    <tr>
+      <th>Part #</th>
+      <td><%= @boxdetail.partnum %></td>
+    </tr>
+    <tr>
+      <th>Custom Tag</th>
+      <td><%= @boxdetail.customtag %></td>
+    </tr>
+    <tr>
+      <th>Service Tag</th>
+      <td><%= @boxdetail.servicetag %></td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td><%= @boxdetail.location.city %></td>
+    </tr>
+    <tr>
+      <th>Operating System</th>
+      <td><%= @boxdetail.operatingsystem.name %></td>
+    </tr>
+    <tr>
+      <th>OS version</th>
+      <td><%= @boxdetail.osversion %></td>
+    </tr>
+    <tr>
+      <th>Bonding #</th>
+      <td><%= @boxdetail.bonding %></td>
+    </tr>
+    <tr>
+      <th>Warranty Start date</th>
+      <td><%= @boxdetail.warrantystart %></td>
+    </tr>
+    <tr>
+      <th>Warranty End date</th>
+      <td><%= @boxdetail.warrantyend %></td>
+    </tr>
+    <tr>
+      <th>Emp #</th>
+      <td><%= @boxdetail.empid %></td>
+    </tr>
+    <tr>
+      <th>Servicestate</th>
+      <td><%= @boxdetail.servicestate.name %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @boxdetail.description %></td>
+    </tr>
+    <tr>
+      <th>Notes</th>
+      <td><%= @boxdetail.notes %></td>
+    </tr>
+  </table>
+ </div>
+</div>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @boxdetail.created_at %>
+</p>
+<p>
+  <strong>Updated at:</strong>
+  <%= @boxdetail.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_boxdetail_path(@boxdetail) %> |
+<%= link_to 'Back', boxdetails_path %>

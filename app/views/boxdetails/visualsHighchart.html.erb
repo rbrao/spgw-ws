@@ -1,0 +1,106 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="height: 400px; margin: 0 auto"></div>
+<div id="container2" style="height: 400px; margin: 0 auto"></div>
+
+<table id="datatable" style="position: absolute; left: -9999em">
+    <thead>
+        <tr>
+            <th>Department</th>
+            <th>EmpID</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @boxdetails.each do |boxdetail| %>
+        <tr>
+          <td><%= boxdetail.department.name %></td>
+          <td><%= boxdetail.empid %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+          data: {
+            table: 'datatable'
+          },
+        chart: {
+            type: 'pie',
+	    options3d: {
+		enabled: true,
+		alpha: 45,
+		beta: 0,
+		depth: 25,
+		viewDistance: 10
+	    }
+        },
+        title: {
+            text: 'Data extracted from a HTML table in the page'
+        },
+	plotOptions: {
+		pie: {
+		  depth: 40,
+		  allowPointSelect: true,
+		}
+	},
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Units'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    this.point.y + ' ' + this.point.name.toLowerCase();
+            }
+        }
+    });
+ });
+</script>
+
+<script>
+$(function () {
+    $('#container2').highcharts({
+          data: {
+            table: 'datatable'
+          },
+        chart: {
+            type: 'column',
+	    options3d: {
+		enabled: true,
+		alpha: 25,
+		beta: 0,
+		depth: 25,
+		viewDistance: 10
+	    }
+        },
+        title: {
+            text: 'Data extracted from a HTML table in the page'
+        },
+	plotOptions: {
+		pie: {
+		  depth: 20,
+		}
+	},
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Units'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    this.point.y + ' ' + this.point.name.toLowerCase();
+            }
+        }
+    });
+ });
+</script>
+

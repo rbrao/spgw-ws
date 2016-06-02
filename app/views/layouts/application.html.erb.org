@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AMS</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <%= csrf_meta_tags %>
+
+<style>
+  body {
+      font: 400 14px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h1 {
+      font-size: 26px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+#      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+#      margin-bottom: 30px;
+  }
+  .jumbotron {
+      background-color: #008b8b;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+  }
+  .reqd {
+      font-size: 14px;
+      color: #ff0000;
+      font-weight: 800;
+      margin-right: 5px;
+  }
+  table {
+      border-style: solid;
+  }
+  .td {
+      border-style: solid;
+  }
+  thead {
+      color: #ffffff;
+      background-color: #4caf50;
+      border-style: solid;
+  }
+  .panel-heading {
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #303030;
+  }
+</style>
+
+</head>
+<body>
+
+  <%= render 'home/navbar' %>
+  <%= render 'home/login' %>
+  <%= render 'docs/miscinfo' %>
+
+  <%= yield %>
+
+</body>
+</html>

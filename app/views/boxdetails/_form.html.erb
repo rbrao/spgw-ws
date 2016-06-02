@@ -1,0 +1,174 @@
+
+<%= form_for @boxdetail, :html => {:class => "form-horizontal center"}  do |f| %>
+  <% if @boxdetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boxdetail.errors.count, "error") %> prohibited this boxdetail from being saved:</h2>
+
+      <ul>
+      <% @boxdetail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :department_id %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.collection_select(:department_id, @departments, :id, :name, {:prompt=>'Select Department'}, {:class=>'form-control drop-select'}) %>
+   </div>
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :name %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :name, placeholder:"Hostname", required:"true" %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :manufacturer %>
+   </div>
+   <div class="col-xs-2" style="float: left;">
+    <%= f.text_field :manufacturer, placeholder:"Manufacturer", required:"true" %>
+   </div>
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :model %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :model, placeholder:"Model/Make", required:"true" %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :ipaddress %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :ipaddress, placeholder:"0.0.0.0", required:"true" %>
+   </div>
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :serialnum %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :serialnum, placeholder:"Serial #", required:"true" %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :partnum %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :partnum, placeholder:"Part #" %>
+   </div>
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :customtag %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :customtag, placeholder:"Asset/Custom Tag", required:"true" %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :servicetag %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :servicetag, placeholder:"Service Tag" %>
+   </div>
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :location_id %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.collection_select(:location_id, @locations, :id, :city, {:prompt => "Select Location"}, {:class => 'form-control drop-select'}) %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :operatingsystem_id %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.collection_select(:operatingsystem_id, @operatingsystems, :id, :name, {:prompt => "Select OS"}, {:class => 'form-control drop-select'}) %>
+   </div>
+   <div class="control-label col-sm-2">
+    <%= f.label :osversion %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :osversion, placeholder:"6.1/2012/5.6" %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :bonding %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :bonding, placeholder:"Bonding #", required:"true" %>
+   </div>
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :empid %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.number_field :empid, placeholder:"Employee #", required:"true" %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :warrantystart %>
+   </div>
+   <div class="col-xs-3">
+    <%= f.date_select :warrantystart, {:start_year=>2010, :end_year=>2025}, {:class => 'form-control date-select'} %>
+   </div>
+   <div class="control-label col-sm-1">
+    <%= f.label :warrantyend %>
+   </div>
+   <div class="col-xs-3">
+    <%= f.date_select :warrantyend, {:start_year=>2010, :end_year=>2025}, {:class => 'form-control date-select'} %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <label class="reqd">*</label>
+    <%= f.label :servicestate_id %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.collection_select(:servicestate_id, @servicestates, :id, :name, {:prompt => "Select Servicestate"}, {:class => 'form-control drop-select'}) %>
+   </div>
+   <div class="control-label col-sm-2">
+    <%= f.label :description %>
+   </div>
+   <div class="col-xs-2">
+    <%= f.text_field :description, placeholder:"Short Description" %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :notes %>
+   </div>
+   <div class="col-sm-4">
+    <%= f.text_area :notes, cols:"70", placeholder:"This asset supports / used for ... " %>
+   </div>
+  </div>
+
+    <%= f.submit "Submit", class: "btn btn-default" %>
+
+<% end %>
+
